@@ -1,0 +1,110 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Narbonne Restaurant Guide</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/6b1deacb2c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="mainHeading">
+      <h1>Narbonne Restaurant Reviewer</h1>
+    </nav>
+
+    <div class="container">
+      <aside class="sidebar" id="sidebar">
+        <div class="heading">
+          <div class="rateBar">
+            <label
+              ><span class="space"> <i class="fas fa-filter"></i></span
+            ></label>
+            <select id="min">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+
+            <h3>To</h3>
+            <select id="max">
+              <option class="options" value="5">5</option>
+              <option class="options" value="4">4</option>
+              <option class="options" value="3">3</option>
+              <option class="options" value="2">2</option>
+              <option class="options" value="1">1</option>
+            </select>
+          </div>
+          <div>
+            <button id="addButton" type="button" disabled="true">
+              Add Review
+            </button>
+            <form id="form1" class="remove">
+              <!-- <label for="RestaurantName">Restaurant Name:</label>
+                        <select id="RestaurantName" name="RestaurantName">
+                            <option value="Auberge des Jacobins">Auberge des Jacobins</option>
+                            <option value="Le Bistrot">Le Bistrot</option>
+                            <option value="L'estafette de Nicolas">L'estafette de Nicolas</option>
+                            <option value="Tablao Flamenco">Tablao Flamenco</option>
+                            <option value="Lou Castel">Lou Castel</option>
+                            <option value="La Fringale">La Fringale</option>
+                        </select> -->
+              <br />
+              <label for="myRating">How do you rate it:</label>
+              <select id="myRating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <br />
+              <label for="comment">Your comment:</label>
+              <br />
+              <textarea
+                id="comment"
+                name="comment"
+                rows="5"
+                cols="33"
+                required
+              ></textarea>
+              <br />
+              <button id="submit" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <div class="modal-content" id="mdContent">
+          <!-- Toggle remove class on restaurnat div -->
+          <ul id="listRestaurant"></ul>
+        </div>
+        <div id="pop" class="remove">
+          <button class="close" id="close">x</button>
+          <div id="popUp">
+            <h1 id="restaurant-name"></h1>
+            <ul id="restaurant-reviews"></ul>
+          </div>
+        </div>
+      </aside>
+
+      <div id="map">GOOGLE MAP</div>
+    </div>
+    <script src="config.js"></script>
+    <script src="assets/js/restaurant.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGOTQ7HjCklebR4giNg8NjnuQ8ToA_q5c&callback=initMap&libraries=places"
+    ></script>
+  </body>
+</html>
