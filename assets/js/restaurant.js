@@ -205,7 +205,7 @@ const createGoogleRestaurantList = (id, avg, img, name) => {
   restaurantList.appendChild(list);
   picture.setAttribute(
     "src",
-    `https://maps.googleapis.com/maps/api/streetview?size=600x400&location=${img}&key=${API_KEY}`,
+    `https://maps.googleapis.com/maps/api/streetview?size=600x400&location=${img}&key=AIzaSyCjvG1YeQVLBlTTaTVzI8JvowQ8Ug3yLQE`,
     "class",
     "listImg"
   );
@@ -425,7 +425,7 @@ function initMap() {
             function (place, status) {
               if (status === google.maps.places.PlacesServiceStatus.OK) {
                 const contentDiv = document.createElement("div");
-                const googleImg = `https://maps.googleapis.com/maps/api/streetview?size=600x400&location=${place.formatted_address}&key=${API_KEY}`;
+                const googleImg = `https://maps.googleapis.com/maps/api/streetview?size=600x400&location=${place.formatted_address}&key=AIzaSyCjvG1YeQVLBlTTaTVzI8JvowQ8Ug3yLQE`;
                 const marker = new google.maps.Marker({
                   title: place.name,
                   map: map,

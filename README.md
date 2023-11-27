@@ -77,4 +77,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 **Note:** Add `config.js` to your project's `.gitignore` file to prevent it from being uploaded to version control.
 
 To run the application, open `index.html` in your web browser.
-# Narbonne-Restaurant-App
