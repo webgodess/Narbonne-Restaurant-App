@@ -594,7 +594,7 @@ function initMap() {
       const marker = placeMarker(name, map, e.latLng, rating, review);
       const lat = e.latLng.lat();
       const lng = e.latLng.lng();
-      const imageUrl1 = `https://maps.googleapis.com/maps/api/streetview?size=600x400&location=${lat},${lng}&key=${API_KEY}`;
+      const imageUrl1 = `https://maps.googleapis.com/maps/api/streetview?size=600x400&location=${lat},${lng}&key=AIzaSyCjvG1YeQVLBlTTaTVzI8JvowQ8Ug3yLQE`;
       geocoder = new google.maps.Geocoder();
 
       geocoder.geocode(
