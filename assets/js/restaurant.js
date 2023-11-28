@@ -345,41 +345,6 @@ function initMap() {
   // Get cached map data if available
   retrieveCachedMapData();
 
-  // get user's location
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        let pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-        // map.setCenter(pos)
-        let marker = new google.maps.Marker({
-          position: pos,
-          title: "Your Location",
-          draggable: true,
-          map: map,
-          icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-        });
-
-        marker.addListener("click", toggleBounce);
-        function toggleBounce() {
-          if (marker.getAnimation() !== null) {
-            marker.setAnimation(null);
-          } else {
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-          }
-        }
-      },
-      function () {
-        handleLocationError(true, infoWindow, map.getCenter());
-      }
-    );
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-
   const service = new google.maps.places.PlacesService(map);
   service.nearbySearch(
     {
@@ -644,10 +609,15 @@ function initMap() {
 
 // event listener for when minimum rating is changed
 min.addEventListener("change", (e) => {
+  console.log(e.target.value, max.value);
   $("#max").empty();
-  for (i = min.value; i <= 5; i++) {
+
+  for (i = 5; i > min.value; i--) {
     $("#max").append(`<option  value="${i}">${i}</option>`);
+    max.value = 5;
   }
+  console.log(e.target.value, max.value);
+  filterMarkers(e.target.value, max.value, markers);
 });
 
 // event listener for when maximum rating is changed
