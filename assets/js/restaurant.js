@@ -15,7 +15,7 @@ const option = document.getElementsByClassName("options");
 const getStars = (average) => {
   const starsLi = document.createElement("span");
   const full = Math.round(average);
-  for (k = 0; k < average; k++) {
+  for (let k = 0; k < average; k++) {
     const starItem = document.createElement("i");
     starItem.innerHTML = '<i class="fas fa-star"></i>';
     starsLi.appendChild(starItem);
@@ -100,7 +100,7 @@ const pushContent = (rate, content, address) => {
     const Li1stItem = document.createElement("li");
     const paragraph = document.createElement("p");
 
-    for (b = 0; b < stars; b++) {
+    for (let b = 0; b < stars; b++) {
       const starItem = document.createElement("i");
       starItem.innerHTML = '<i class="fas fa-star"></i>';
       miniRate.appendChild(starItem);
@@ -121,7 +121,7 @@ const pushUserFeedback = (rating, comment, restaurant) => {
   const Li1stItem = document.createElement("li");
   const paragraph = document.createElement("p");
 
-  for (c = 0; c < rating; c++) {
+  for (let c = 0; c < rating; c++) {
     const starItem = document.createElement("i");
     starItem.innerHTML = '<i class="fas fa-star"></i>';
     miniRate.appendChild(starItem);
@@ -149,7 +149,7 @@ const pushContentOfClicked = (rate, comment, content, address) => {
     const Li1stItem = document.createElement("li");
     const paragraph = document.createElement("p");
 
-    for (b = 0; b < rate; b++) {
+    for (let b = 0; b < rate; b++) {
       const starItem = document.createElement("i");
       starItem.innerHTML = '<i class="fas fa-star"></i>';
       miniRate.appendChild(starItem);
@@ -166,6 +166,8 @@ const pushContentOfClicked = (rate, comment, content, address) => {
 const createRestaurantList = (id, avg, img, name) => {
   const restaurantList = document.getElementById("listRestaurant");
   const listItem = document.createElement("li");
+  const listDiv = document.createElement("div");
+  const mainContainer = document.createElement("div");
   const listName = document.createElement("h3");
   const listItemRating = document.createElement("ul");
 
@@ -175,12 +177,16 @@ const createRestaurantList = (id, avg, img, name) => {
 
     picture.setAttribute("src", `${img}`);
     picture.setAttribute("class", "listImg");
-    listItem.appendChild(picture);
+    picture.setAttribute("alt", "restaurant image");
+    mainContainer.className = "restaurant-info";
+    listItem.appendChild(mainContainer);
+    mainContainer.appendChild(picture);
     listItemRating.appendChild(starsList);
-    listItem.style.padding = "10px";
     listName.innerHTML = name;
-    listItem.appendChild(listName);
-    listItem.appendChild(listItemRating);
+    listDiv.className = "containingDiv";
+    listDiv.appendChild(listName);
+    listDiv.appendChild(listItemRating);
+    listItem.appendChild(listDiv);
   }
 
   restaurantList.appendChild(listItem);
@@ -194,6 +200,8 @@ const createGoogleRestaurantList = (id, avg, img, name) => {
   const restaurantList = document.getElementById("listRestaurant");
   const list = document.createElement("ul");
   const listItem = document.createElement("li");
+  const listDiv = document.createElement("div");
+  const mainContainer = document.createElement("div");
   const listName = document.createElement("h3");
   const listItemRating = document.createElement("ul");
   const starsList = getStars(avg);
@@ -210,7 +218,9 @@ const createGoogleRestaurantList = (id, avg, img, name) => {
     "listImg"
   );
   picture.setAttribute("class", "listImg");
-  listItem.appendChild(picture);
+  mainContainer.className = "restaurant-info";
+  listItem.appendChild(mainContainer);
+  mainContainer.appendChild(picture);
 
   listItemRating.appendChild(starsList);
   listItem.style.padding = "10px";
@@ -249,7 +259,7 @@ function clearMarkers() {
 
 // Sets the map on all markers in the array
 function setMapOnAll(map) {
-  for (var i = 0; i < markers.length; i++) {
+  for (let i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
 }
