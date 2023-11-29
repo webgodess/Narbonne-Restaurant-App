@@ -1,13 +1,19 @@
-#map {
-  height: 100%;
-  width: 70%;
-}
-
 html,
 body {
   margin: 0;
   color: #35494d;
   font-family: "Merriweather", serif;
+  overflow-y: hidden;
+  padding: 0;
+}
+
+#map {
+  height: 100%;
+  width: 70%;
+}
+
+.mainHeading {
+  max-width: 100%;
 }
 
 #restaurantList {
@@ -129,6 +135,7 @@ select {
 .listImg {
   width: 90px;
   float: right;
+  height: 100%;
 }
 
 img {
@@ -160,25 +167,21 @@ img {
 }
  */
 /* Scrollbar styles */
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 12px;
   height: 5px;
   border-radius: 10%;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
   box-shadow: inset 0 0 10px olivedrab;
   border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: yellowgreen; 
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-  }
- */
-li#rest {
-  border: 1px solid #4e6d77;
+  background: yellowgreen;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 .rateBar {
@@ -186,10 +189,30 @@ li#rest {
   align-items: center;
 }
 
-li#rest {
+#restaurantRatingId {
   padding: 10px;
 }
 
-#restaurantRatingId {
-  padding: 10px;
+li[id*="rest"],
+li[class*="individual"] {
+  display: flex !important ;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin: 10px auto;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.containingDiv {
+  width: 60%;
+}
+
+.containingDiv > h3 {
+  margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    color: red;
+  }
 }
