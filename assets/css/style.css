@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Proza+Libre&display=swap");
+
 html,
 body {
   margin: 0;
   color: #35494d;
-  font-family: "Merriweather", serif;
+  font-family: "Proza Libre", sans-serif;
   overflow-y: hidden;
   padding: 0;
 }
@@ -88,11 +90,12 @@ p {
 
 h1 {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
 }
 
-h3 {
-  font-family: "Montserrat", sans-serif;
+h1,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", serif;
 }
 
 .gm-style img {
