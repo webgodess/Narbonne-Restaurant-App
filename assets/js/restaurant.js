@@ -45,7 +45,7 @@ const filterMarkers = (min, max, markers) => {
       marker.setVisible(true);
       // console.log(marker.title)
       if (listItemId) {
-        listItemId.style.display = "block";
+        listItemId.style.display = "flex";
       }
     } else {
       marker.setVisible(false);
